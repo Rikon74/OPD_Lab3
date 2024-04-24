@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<label for="your_goal">Ваша цель:</label>
+<input type="number" id="your_goal" name="your_goal" required>
+
+<label for="interest_rate">Процентная ставка:</label>
+<input type="number" id="interest_rate" name="interest_rate" required>
+
+<label for="deposit_term">Срок вклада (лет):</label>
+<input type="number" id="deposit_term" name="deposit_term" required>
+
+<input type="submit" value="Рассчитать">
+
+<p>Стартовый капитал: {{ calculated }}</p>
+
+{% endblock %}

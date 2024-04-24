@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Калькулятор сложного процента</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      document.querySelector(
+    </script>
+    <h1>Калькулятор сложного процента</h1>
+    <form id="myForm" method="POST" action="/">
+      <label for="select">Вычислить:</label>
+      <select id="select" name="choice">
+        {% if selected_option == 'calculate_total_amount' %}
+        <option value="calculate_total_amount" selected>Конечную сумму</option>
+        {% else %}
+        <option value="calculate_total_amount">Конечную сумму</option>
+        {% endif %}
+        {% if selected_option == 'calculate_interest_rate' %}
+        <option value="calculate_interest_rate" selected>Ставку</option>
+        {% else %}
+        <option value="calculate_interest_rate">Ставку</option>
+        {% endif %}
+        {% if selected_option == 'calculate_starting_capital' %}
+        <option value="calculate_starting_capital" selected>Стартовый капитал</option>
+        {% else %}
+        <option value="calculate_starting_capital">Стартовый капитал</option>
+        {% endif %}
+        {% if selected_option == 'calculate_deposit_term' %}
+        <option value="calculate_deposit_term" selected>Срок достижения цели</option>
+        {% else %}
+        <option value="calculate_deposit_term">Срок достижения цели</option>
+        {% endif %}
+      </select>
+      <br/><br/>
+      {% block body %}{% endblock %}
+    </form>
+
+    <script>
+      document.getElementById("select").addEventListener("change", function() {
+        document.getElementById("myForm").submit();
+      });
+    </script>
+  </body>
+</html>
